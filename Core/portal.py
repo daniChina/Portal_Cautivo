@@ -9,12 +9,12 @@ import signal
 import sys
 from typing import Dict
 
-from network.network_config import NetworkConfig
-from network.dns_server import DNSServer
+from Network.network_config import NetworkConfig
+from Network.dns_server import DNSServer
 from http.server import HTTPServer
-from auth.user_manager import UserManager
-from auth.session_manager import SessionManager
-from utils.logger import Logger
+from Auth.user_manager import UserManager
+from Auth.session_manager import SessionManager
+from Utils.utils_loggers import Logger
 
 class CaptivePortal:
     """Portal cautivo completo e independiente"""

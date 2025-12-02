@@ -67,7 +67,7 @@ class UserManager:
         
         self.users = default_users
         self._save_users()
-        print("✅ Usuarios por defecto creados:")
+        print("Usuarios por defecto creados:")
         print("   - admin / admin123")
         print("   - usuario / usuario123")
     
