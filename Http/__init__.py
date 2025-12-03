@@ -3,9 +3,9 @@ Módulo HTTP del Portal Cautivo
 Servidor web, plantillas y manejadores de rutas
 """
 
-from .http_server import HTTPServer
-from .parser_http import HTTPRequest
-from .templates import (
+from Http.http_server import HTTPServer
+from Http.parser_http import HTTPRequest
+from Http.templates import (
     get_login_template,
     get_success_template,
     get_error_template

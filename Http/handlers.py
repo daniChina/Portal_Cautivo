@@ -5,7 +5,7 @@ Puede extenderse fácilmente para agregar nuevas rutas
 """
 
 from typing import Callable, Dict, Any
-from .parser_http import HTTPRequest
+from Http.parser_http import HTTPRequest
 
 class RouteHandler:
     """Manejador de rutas HTTP"""

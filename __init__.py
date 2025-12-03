@@ -14,8 +14,8 @@ __author__ = "Tu Nombre"
 __description__ = "Portal cautivo implementado completamente en Python sin dependencias externas"
 
 # Importaciones principales para acceso fácil
-from .Core.portal import CaptivePortal
-from .Core.config import PortalConfig
+from Core.portal import CaptivePortal
+from Core.config import PortalConfig
 
 # Variables globales de configuración
 default_config = {

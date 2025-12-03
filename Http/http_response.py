@@ -5,7 +5,7 @@ Constructor de respuestas HTTP - Clase utilitaria
 
 from typing import Dict, Optional
 from datetime import datetime
-from .templates import get_error_template
+from Http.templates import get_error_template
 
 class HTTPResponse:
     """Clase helper para construir respuestas HTTP"""

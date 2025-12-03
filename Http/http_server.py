@@ -7,8 +7,8 @@ import socket
 import threading
 import time
 from typing import Callable, Optional, Dict, Tuple
-from .parser_http import HTTPRequest
-from .templates import get_login_template, get_success_template, get_error_template
+from Http.parser_http import HTTPRequest
+from Http.templates import get_login_template, get_success_template, get_error_template
 
 class HTTPServer:
     """Servidor HTTP completo con gestión de sesiones"""

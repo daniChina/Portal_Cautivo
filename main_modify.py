@@ -8,8 +8,8 @@ import os
 import sys
 import signal
 import time 
-from core.portal import CaptivePortal
-from utils.logger import Logger
+from Core.portal import CaptivePortal
+from Utils.utils_loggers import Logger
 
 def check_root():
     """Verifica que se ejecute como root"""

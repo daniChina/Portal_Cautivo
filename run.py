@@ -16,14 +16,14 @@ def main():
     # Verificar que estamos como root
     if os.geteuid() != 0:
         print("""
-        ⚠️  ERROR: Se requieren permisos de administrador (root)
+        ERROR: Se requieren permisos de administrador (root)
         
         El portal cautivo necesita:
         • Configurar interfaces de red
         • Modificar reglas de firewall
         • Escuchar en puertos privilegiados (53, 80)
         
-        💡 Ejecuta con: sudo python3 run.py
+         Ejecuta con: sudo python3 run.py
         """)
         sys.exit(1)
     
@@ -44,8 +44,8 @@ def main():
     os.makedirs("data/logs", exist_ok=True)
     os.makedirs("config", exist_ok=True)
     
-    print("📁 Directorios creados: data/, data/logs/, config/")
-    print("⏳ Iniciando en 3 segundos...")
+    print(" Directorios creados: data/, data/logs/, config/")
+    print(" Iniciando en 3 segundos...")
     time.sleep(3)
     
     try:
@@ -53,9 +53,9 @@ def main():
         from main_modify import main as portal_main
         portal_main()
     except KeyboardInterrupt:
-        print("\n👋 Portal detenido por el usuario")
+        print(" Portal detenido por el usuario")
     except Exception as e:
-        print(f"\n💥 Error crítico: {e}")
+        print(f" Error crítico: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

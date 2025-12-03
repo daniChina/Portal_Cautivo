@@ -27,7 +27,7 @@ def list_users():
     manager = UserManager()
     users = manager.get_all_users()
     
-    click.echo("\n📋 Usuarios registrados:")
+    click.echo(" Usuarios registrados:")
     click.echo("-" * 40)
     for user in users:
         click.echo(f"  • {user['email']} - Creado: {user['created_at']}")
@@ -39,7 +39,7 @@ def active_sessions():
     manager = SessionManager()
     sessions = manager.get_active_sessions()
     
-    click.echo("\n🌐 Sesiones activas:")
+    click.echo(" Sesiones activas:")
     click.echo("-" * 60)
     for session in sessions:
         click.echo(f"  IP: {session['ip']}")

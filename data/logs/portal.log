@@ -1,0 +1,66 @@
+2025-12-03 00:42:47.391 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
+2025-12-03 00:42:47.778 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
+2025-12-03 00:42:47.778 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
+2025-12-03 00:42:47.778 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
+2025-12-03 00:42:47.779 [INFO    ] [Core.portal]    DNS Server: :53
+2025-12-03 00:42:47.781 [INFO    ] [Core.portal]    HTTP Server: :80
+2025-12-03 00:42:47.781 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
+2025-12-03 00:43:00.783 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:43:30.791 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:43:48.430 [INFO    ] [Core.portal]  Deteniendo portal...
+2025-12-03 00:43:48.843 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
+2025-12-03 00:43:48.844 [INFO    ] [Core.portal] Portal detenido
+2025-12-03 00:44:37.721 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
+2025-12-03 00:44:37.857 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
+2025-12-03 00:44:37.858 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
+2025-12-03 00:44:37.858 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
+2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
+2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    DNS Server: :53
+2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    HTTP Server: :80
+2025-12-03 00:45:00.869 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:45:30.880 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:46:00.890 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:46:30.898 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:47:00.903 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:47:30.911 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:48:00.918 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:48:30.926 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:49:00.933 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:49:30.941 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 00:49:43.222 [INFO    ] [Core.portal]  Deteniendo portal...
+2025-12-03 00:49:44.182 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
+2025-12-03 00:49:44.182 [INFO    ] [Core.portal] Portal detenido
+2025-12-03 01:01:18.391 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
+2025-12-03 01:01:18.552 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
+2025-12-03 01:01:18.552 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
+2025-12-03 01:01:18.553 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
+2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
+2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    DNS Server: :53
+2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    HTTP Server: :80
+2025-12-03 01:01:30.557 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:02:00.567 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:02:12.641 [INFO    ] [Core.portal]  Deteniendo portal...
+2025-12-03 01:02:13.613 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
+2025-12-03 01:02:15.614 [INFO    ] [Core.portal] Portal detenido
+2025-12-03 01:02:51.943 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
+2025-12-03 01:02:52.081 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
+2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
+2025-12-03 01:02:52.082 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
+2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    DNS Server: :53
+2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    HTTP Server: :80
+2025-12-03 01:02:52.082 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
+2025-12-03 01:03:00.085 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:03:30.097 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:04:00.107 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:04:30.115 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:05:00.122 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:05:30.129 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:06:00.137 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:06:30.144 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:07:00.151 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:07:30.158 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:08:00.167 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:08:30.174 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
+2025-12-03 01:08:49.108 [INFO    ] [Core.portal]  Deteniendo portal...
+2025-12-03 01:08:49.462 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
+2025-12-03 01:08:51.463 [INFO    ] [Core.portal] Portal detenido

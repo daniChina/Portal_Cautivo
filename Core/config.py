@@ -3,7 +3,7 @@ import os
 from dataclasses import dataclass
 from typing import Dict, Any
 
-@dataclass
+
 class PortalConfig:
     """Configuración centralizada del portal"""
     # Red
@@ -26,7 +26,7 @@ class PortalConfig:
     sessions_db_path: str = "data/sessions.db"
     log_path: str = "data/logs/portal.log"
     
-    @classmethod
+  
     def from_yaml(cls, path: str = "config/default.yaml"):
         """Carga configuración desde YAML"""
         if os.path.exists(path):

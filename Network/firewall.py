@@ -1,7 +1,7 @@
 import subprocess
 import threading
 from typing import List, Optional
-from ..utils.logger import Logger
+from Utils.utils_loggers import Logger
 
 class FirewallManager:
     """Gestión segura y desacoplada del firewall"""

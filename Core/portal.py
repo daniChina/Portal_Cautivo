@@ -11,7 +11,7 @@ from typing import Dict
 
 from Network.network_config import NetworkConfig
 from Network.dns_server import DNSServer
-from http.server import HTTPServer
+from Http.http_server import HTTPServer
 from Auth.user_manager import UserManager
 from Auth.session_manager import SessionManager
 from Utils.utils_loggers import Logger
@@ -36,60 +36,61 @@ class CaptivePortal:
         
         # Threads
         self.threads = []
-    
+
     def start(self):
-        """Inicia el portal cautivo completo"""
-        try:
-            self.logger.info("🚀 Iniciando Portal Cautivo...")
+     """Inicia el portal cautivo completo"""
+     try:
+        self.logger.info("🚀 Iniciando Portal Cautivo...")
+        
+        # 1. Detectar y configurar red
+        self.topology = self.network.detect_network_topology()
+        if not self.network.setup_portal_network(self.topology):
+            raise Exception("No se pudo configurar la red")
+        
+        # 2. Configurar servidor DNS
+        gateway_ip = self.network.defaults['portal_gateway']
+        self.dns_server.gateway_ip = gateway_ip
+        self.dns_server.set_logger(self.logger)
+        
+        # 3. Iniciar servidores en threads separados
+        self.running = True
+        
+        # Servidor DNS
+        dns_thread = threading.Thread(target=self.dns_server.start)
+        dns_thread.daemon = True
+        dns_thread.start()
+        self.threads.append(dns_thread)
+        
+        # Configurar servidor HTTP ANTES de iniciarlo
+        self.http_server.set_auth_callbacks(
+            self._get_client_auth_status, 
+            self._authenticate_client
+        )
+        self.http_server.on_login_success = self._handle_login_success
+        self.http_server.on_logout = self._handle_logout
+        
+        # Servidor HTTP
+        http_thread = threading.Thread(target=self.http_server.start)  # ✅ Sin argumentos
+        http_thread.daemon = True
+        http_thread.start()
+        self.threads.append(http_thread)
+        
+        self.logger.info("Portal cautivo iniciado correctamente")
+        self.logger.info(f"   Gateway: {gateway_ip}")
+        self.logger.info(f"   DNS Server: :{self.network.defaults['dns_port']}")
+        self.logger.info(f"   HTTP Server: :{self.network.defaults['http_port']}")
+        
+        # Mantener proceso principal activo
+        while self.running:
+            time.sleep(1)
             
-            # 1. Detectar y configurar red
-            self.topology = self.network.detect_network_topology()
-            if not self.network.setup_portal_network(self.topology):
-                raise Exception("No se pudo configurar la red")
-            
-            # 2. Configurar servidor DNS
-            gateway_ip = self.network.defaults['portal_gateway']
-            self.dns_server.gateway_ip = gateway_ip
-            self.dns_server.set_logger(self.logger)
-            
-            # 3. Iniciar servidores en threads separados
-            self.running = True
-            
-            # Servidor DNS
-            dns_thread = threading.Thread(target=self.dns_server.start)
-            dns_thread.daemon = True
-            dns_thread.start()
-            self.threads.append(dns_thread)
-            
-            # Servidor HTTP
-            http_thread = threading.Thread(
-                target=self.http_server.start,
-                args=(self._get_client_auth_status, self._authenticate_client)
-            )
-            http_thread.daemon = True
-            http_thread.start()
-            self.threads.append(http_thread)
-            
-            # Configurar callbacks
-            self.http_server.on_login_success = self._handle_login_success
-            self.http_server.on_logout = self._handle_logout
-            
-            self.logger.info("Portal cautivo iniciado correctamente")
-            self.logger.info(f"   Gateway: {gateway_ip}")
-            self.logger.info(f"   DNS Server: :{self.network.defaults['dns_port']}")
-            self.logger.info(f"   HTTP Server: :{self.network.defaults['http_port']}")
-            
-            # Mantener proceso principal activo
-            while self.running:
-                time.sleep(1)
-                
-                # Monitorear estado
-                self._monitor_status()
-            
-        except Exception as e:
-            self.logger.error(f"Error iniciando portal: {e}")
-            self.stop()
-    
+            # Monitorear estado
+            self._monitor_status()
+        
+     except Exception as e:
+        self.logger.error(f"Error iniciando portal: {e}")
+        self.stop()
+
     def stop(self):
         """Detiene el portal cautivo"""
         self.logger.info(" Deteniendo portal...")
