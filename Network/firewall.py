@@ -114,6 +114,37 @@ class FirewallManager:
             
             self.logger.info(f"Acceso bloqueado para {client_ip}")
     
+
+    
+    def allow_client_dns(self, client_ip: str, internal_interface: str):
+        """Permite que un cliente use DNS externo"""
+        commands = [
+            f'iptables -t nat -I PREROUTING 1 -i {internal_interface} '
+            f'-s {client_ip} -p udp --dport 53 -j ACCEPT',
+            f'iptables -t nat -I PREROUTING 1 -i {internal_interface} '
+            f'-s {client_ip} -p tcp --dport 53 -j ACCEPT'
+        ]
+        
+        for cmd in commands:
+            self._run_command(cmd)
+        
+        self.logger.info(f"DNS permitido para {client_ip}")
+    
+    def block_client_dns(self, client_ip: str, internal_interface: str):
+        """Revoca permisos DNS para un cliente"""
+        commands = [
+            f'iptables -t nat -D PREROUTING -i {internal_interface} '
+            f'-s {client_ip} -p udp --dport 53 -j ACCEPT 2>/dev/null || true',
+            f'iptables -t nat -D PREROUTING -i {internal_interface} '
+            f'-s {client_ip} -p tcp --dport 53 -j ACCEPT 2>/dev/null || true'
+        ]
+        
+        for cmd in commands:
+            self._run_command(cmd)
+        
+        self.logger.info(f"DNS bloqueado para {client_ip}")
+
+
     def cleanup(self):
         """Limpia las reglas del firewall"""
         commands = [

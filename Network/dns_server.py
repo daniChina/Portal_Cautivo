@@ -1,398 +1,389 @@
-#!/usr/bin/env python3
 """
-Servidor DNS implementado manualmente sin librerías externas.
-RFC 1035 - Domain names - implementation and specification
+Gestión de dnsmasq integrado con el portal cautivo
+DNS  con redirección solo para dominios de detección de portal
 """
 
-import socket
-import struct
-import threading
+import subprocess
+import os
 import time
-from typing import Dict, List, Tuple, Optional
-from dataclasses import dataclass
+import threading
+from typing import Dict, List, Optional
 import ipaddress
 
-@dataclass
-class DNSQuestion:
-    """Representa una pregunta DNS"""
-    name: str      # Nombre de dominio (ej: "google.com")
-    qtype: int     # Tipo de consulta (1=A, 28=AAAA)
-    qclass: int    # Clase (1=IN)
-
-@dataclass
-class DNSResourceRecord:
-    """Representa un registro de recurso DNS"""
-    name: str
-    rtype: int
-    rclass: int
-    ttl: int
-    rdlength: int
-    rdata: bytes
-
-class DNSServer:
-    """Servidor DNS completo implementado manualmente"""
+class DnsmasqManager:
+    """Gestor de dnsmasq para DHCP y DNS normal con portal cautivo"""
     
-    # Constantes DNS
-    TYPE_A = 1      # IPv4 address
-    TYPE_NS = 2     # Name server
-    TYPE_CNAME = 5  # Canonical name
-    TYPE_SOA = 6    # Start of authority
-    TYPE_PTR = 12   # Domain name pointer
-    TYPE_MX = 15    # Mail exchange
-    TYPE_TXT = 16   # Text strings
-    TYPE_AAAA = 28  # IPv6 address
-    TYPE_ANY = 255  # Any type
-    
-    CLASS_IN = 1    # Internet class
-    
-    # Opcodes
-    OPCODE_QUERY = 0
-    OPCODE_IQUERY = 1
-    OPCODE_STATUS = 2
-    
-    # Response codes
-    RCODE_NO_ERROR = 0
-    RCODE_FORMAT_ERROR = 1
-    RCODE_SERVER_FAILURE = 2
-    RCODE_NAME_ERROR = 3
-    RCODE_NOT_IMPLEMENTED = 4
-    RCODE_REFUSED = 5
-    
-    def __init__(self, gateway_ip: str = "192.168.100.1", port: int = 53):
-        self.gateway_ip = gateway_ip
-        self.port = port
-        self.running = False
-        self.socket = None
-        self.logger = None
+    def __init__(self, config: dict):
+        self.config = config
+        self.process = None
+        self.conf_path = "/tmp/dnsmasq-portal.conf"
+        self.leases_file = "/tmp/dnsmasq.leases"
         
-        # Zonas DNS configuradas
-        self.zones: Dict[str, List[DNSResourceRecord]] = {
-            # Redirigir todos los dominios comunes al portal
-            ".": [],  # Root - para redirección universal
+        # Configuración por defecto
+        self.default_config = {
+            'interface': 'wlan0',
+            'gateway': '192.168.100.1',
+            'subnet': '192.168.100.0/24',
+            'dhcp_start': '192.168.100.100',
+            'dhcp_end': '192.168.100.200',
+            'netmask': '255.255.255.0',
+            'lease_time': '12h',
+            'dns_server': '192.168.100.1',
+            'external_dns': ['8.8.8.8', '8.8.4.4'],
+            'portal_ip': '192.168.100.1'
         }
         
-        # Cache DNS simple
-        self.cache: Dict[str, Tuple[float, List[DNSResourceRecord]]] = {}
-        self.cache_ttl = 300  # 5 minutos
+        # Actualizar con configuración proporcionada
+        self.default_config.update(config)
         
-        # Dominios permitidos después de autenticación
-        self.allowed_domains: Dict[str, List[str]] = {}  # client_ip -> [domains]
+        # Dominios de detección de portal cautivo que deben redirigirse al portal
+        self.captive_portal_domains = [
+            'captive.apple.com',
+            'connectivitycheck.android.com',
+            'connectivitycheck.gstatic.com',
+            'clients3.google.com',
+            'detectportal.firefox.com',
+            'www.appleiphonecell.com',
+            'www.msftconnecttest.com',
+            'www.msftncsi.com',
+            'network-test.debian.org',
+            'nmcheck.gnome.org',
+            'connectivitycheck.captiveportal.com'
+        ]
         
         # Estadísticas
         self.stats = {
-            'queries': 0,
-            'redirected': 0,
-            'allowed': 0,
-            'errors': 0
+            'started': False,
+            'leases_active': 0,
+            'last_reload': None
         }
     
-    def set_logger(self, logger):
-        """Establece el logger para mensajes"""
-        self.logger = logger
+    def generate_config(self) -> str:
+        """Genera configuración dnsmasq dinámicamente"""
+        config_lines = [
+            "# Configuración generada por Portal Cautivo",
+            f"interface={self.default_config['interface']}",
+            f"listen-address={self.default_config['gateway']}",
+            "bind-interfaces",
+            "",
+            "# DHCP Server",
+            f"dhcp-range={self.default_config['dhcp_start']},{self.default_config['dhcp_end']},{self.default_config['netmask']},{self.default_config['lease_time']}",
+            f"dhcp-option=3,{self.default_config['gateway']}  # Gateway",
+            f"dhcp-option=6,{self.default_config['gateway']}  # DNS Server (este mismo servidor)",
+            f"dhcp-leasefile={self.leases_file}",
+            "",
+            "# DNS Server - Funciona normalmente",
+            "no-resolv",
+            "no-poll",
+            "",
+            "# Servidores DNS externos"
+        ]
+        
+        # Agregar servidores DNS externos
+        for dns in self.default_config['external_dns']:
+            config_lines.append(f"server={dns}")
+        
+        config_lines.append("")
+        config_lines.append("# Redirección de dominios de detección de portal cautivo")
+        
+        # Agregar redirecciones para dominios de portal cautivo
+        for domain in self.captive_portal_domains:
+            config_lines.append(f"address=/{domain}/{self.default_config['portal_ip']}")
+        
+        config_lines.extend([
+            "",
+            "# Logging",
+            "log-dhcp",
+            "log-queries",
+            f"log-facility=/tmp/dnsmasq.log",
+            "",
+            "# Rendimiento",
+            "cache-size=100",
+            "stop-dns-rebind",
+            "bogus-priv",
+            "expand-hosts",
+            f"domain={self.default_config.get('domain', 'portal.local')}",
+            "",
+            "# Opciones de seguridad",
+            "no-dhcp-interface=lo",
+            "dhcp-authoritative",
+            "local-ttl=300"
+        ])
+        
+        return "\n".join(config_lines)
     
-    def log(self, message: str, level: str = "INFO"):
-        """Registra un mensaje"""
-        if self.logger:
-            self.logger.log(f"[DNS] {message}", level)
-        else:
-            print(f"[DNS] {message}")
-    
-    def encode_domain_name(self, domain: str) -> bytes:
-        """
-        Codifica un nombre de dominio según RFC 1035
-        Ejemplo: "google.com" -> b'\x06google\x03com\x00'
-        """
-        encoded = b''
-        for part in domain.split('.'):
-            if part:  # Ignorar partes vacías
-                encoded += struct.pack('B', len(part))  # Longitud
-                encoded += part.encode('ascii')         # Contenido
-        encoded += b'\x00'  # Terminador
-        return encoded
-    
-    def decode_domain_name(self, data: bytes, offset: int) -> Tuple[str, int]:
-        """
-        Decodifica un nombre de dominio desde datos binarios
-        Maneja compresión DNS (punteros)
-        """
-        labels = []
-        original_offset = offset
-        jumped = False
-        max_jumps = 10  # Prevenir loops infinitos
-        jumps = 0
-        
-        while jumps < max_jumps:
-            if offset >= len(data):
-                break
+    def start(self) -> bool:
+        """Inicia dnsmasq"""
+        try:
+            # Parar dnsmasq si ya está corriendo
+            self._stop_existing_dnsmasq()
             
-            length = data[offset]
-            offset += 1
+            # Generar configuración
+            config_content = self.generate_config()
             
-            if length == 0:
-                # Fin del nombre
-                break
-            elif (length & 0xC0) == 0xC0:
-                # Puntero de compresión
-                if not jumped:
-                    original_offset = offset + 1
-                pointer = ((length & 0x3F) << 8) | data[offset]
-                offset = pointer
-                jumped = True
-                jumps += 1
-                continue
-            else:
-                # Etiqueta normal
-                labels.append(data[offset:offset + length].decode('ascii', errors='ignore'))
-                offset += length
-        
-        if jumped:
-            offset = original_offset
-        
-        return '.'.join(labels), offset
-    
-    def parse_dns_query(self, data: bytes) -> Tuple[Dict, List[DNSQuestion]]:
-        """
-        Parsea un paquete DNS completo
-        Retorna: (header_dict, questions_list)
-        """
-        if len(data) < 12:  # Tamaño mínimo del header DNS
-            raise ValueError("Paquete DNS demasiado pequeño")
-        
-        # Parsear header (12 bytes)
-        header = struct.unpack('!HHHHHH', data[:12])
-        
-        header_dict = {
-            'id': header[0],
-            'qr': (header[1] >> 15) & 0x1,      # Query/Response
-            'opcode': (header[1] >> 11) & 0xF,  # Opcode
-            'aa': (header[1] >> 10) & 0x1,      # Authoritative Answer
-            'tc': (header[1] >> 9) & 0x1,       # Truncated
-            'rd': (header[1] >> 8) & 0x1,       # Recursion Desired
-            'ra': (header[1] >> 7) & 0x1,       # Recursion Available
-            'z': (header[1] >> 4) & 0x7,        # Reserved
-            'rcode': header[1] & 0xF,           # Response Code
-            'qdcount': header[2],               # Question Count
-            'ancount': header[3],               # Answer Count
-            'nscount': header[4],               # Authority Count
-            'arcount': header[5]                # Additional Count
-        }
-        
-        questions = []
-        offset = 12
-        
-        # Parsear preguntas
-        for _ in range(header_dict['qdcount']):
-            if offset >= len(data):
-                break
+            # Guardar archivo de configuración
+            with open(self.conf_path, 'w') as f:
+                f.write(config_content)
             
-            qname, offset = self.decode_domain_name(data, offset)
+            # Crear directorio para logs si no existe
+            os.makedirs(os.path.dirname("/tmp/dnsmasq.log"), exist_ok=True)
             
-            if offset + 4 > len(data):
-                break
+            # Iniciar dnsmasq en modo no-daemon
+            cmd = [
+                'dnsmasq',
+                '-C', self.conf_path,
+                '--no-daemon',
+                '--log-queries',
+                '--log-dhcp'
+            ]
             
-            qtype, qclass = struct.unpack('!HH', data[offset:offset + 4])
-            offset += 4
-            
-            questions.append(DNSQuestion(
-                name=qname.lower(),  # DNS es case-insensitive
-                qtype=qtype,
-                qclass=qclass
-            ))
-        
-        return header_dict, questions
-    
-    def create_dns_response(self, query_header: Dict, questions: List[DNSQuestion], 
-                           answers: List[DNSResourceRecord]) -> bytes:
-        """
-        Crea una respuesta DNS
-        """
-        # Construir header de respuesta
-        flags = 0
-        flags |= (1 << 15)  # QR = 1 (Response)
-        flags |= (query_header['opcode'] << 11)  # Mismo opcode
-        flags |= (1 << 10)  # AA = 1 (Authoritative Answer)
-        flags |= (query_header['rd'] << 8)  # Recursion Desired
-        flags |= (1 << 7)   # RA = 1 (Recursion Available)
-        flags |= query_header['rcode']  # Response Code
-        
-        header = struct.pack('!HHHHHH',
-            query_header['id'],           # Transaction ID
-            flags,                        # Flags
-            len(questions),               # QDCOUNT
-            len(answers),                 # ANCOUNT
-            0,                            # NSCOUNT
-            0                             # ARCOUNT
-        )
-        
-        # Construir sección de preguntas
-        questions_section = b''
-        for question in questions:
-            questions_section += self.encode_domain_name(question.name)
-            questions_section += struct.pack('!HH', question.qtype, question.qclass)
-        
-        # Construir sección de respuestas
-        answers_section = b''
-        for answer in answers:
-            answers_section += self.encode_domain_name(answer.name)
-            answers_section += struct.pack('!HHIH', 
-                answer.rtype, 
-                answer.rclass,
-                answer.ttl,
-                answer.rdlength
+            self.process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                bufsize=1,
+                universal_newlines=True
             )
-            answers_section += answer.rdata
-        
-        return header + questions_section + answers_section
+            
+            # Verificar que se inició correctamente
+            time.sleep(2)
+            if self.process.poll() is not None:
+                # Error al iniciar
+                stderr = self.process.stderr.read() if self.process.stderr else "Unknown error"
+                raise Exception(f"dnsmasq no pudo iniciar: {stderr}")
+            
+            self.stats['started'] = True
+            self.stats['last_reload'] = time.time()
+            
+            # Iniciar thread para leer logs
+            log_thread = threading.Thread(target=self._read_logs, daemon=True)
+            log_thread.start()
+            
+            # Iniciar thread para monitorear leases
+            monitor_thread = threading.Thread(target=self._monitor_leases, daemon=True)
+            monitor_thread.start()
+            
+            print(f"[dnsmasq] ✅ Servidor iniciado en {self.default_config['interface']}")
+            print(f"[dnsmasq] DHCP: {self.default_config['dhcp_start']} - {self.default_config['dhcp_end']}")
+            print(f"[dnsmasq] Gateway: {self.default_config['gateway']}")
+            print(f"[dnsmasq] DNS externos: {', '.join(self.default_config['external_dns'])}")
+            print(f"[dnsmasq] Dominios de portal: {len(self.captive_portal_domains)} configurados")
+            
+            return True
+            
+        except Exception as e:
+            print(f"[dnsmasq] ❌ Error iniciando: {e}")
+            return False
     
-    def ip_to_bytes(self, ip: str) -> bytes:
-        """Convierte una dirección IP a bytes para DNS"""
+    def _stop_existing_dnsmasq(self):
+        """Detiene instancias existentes de dnsmasq"""
         try:
-            ip_obj = ipaddress.ip_address(ip)
-            if ip_obj.version == 4:
-                return ip_obj.packed
-            elif ip_obj.version == 6:
-                return ip_obj.packed
+            subprocess.run(['pkill', '-9', 'dnsmasq'], 
+                         capture_output=True, timeout=5)
+            time.sleep(1)
         except:
-            # Si falla, usar IPv4 por defecto
-            return socket.inet_aton(ip)
-    
-    def create_a_record(self, domain: str, ip: str, ttl: int = 300) -> DNSResourceRecord:
-        """Crea un registro A (IPv4)"""
-        return DNSResourceRecord(
-            name=domain,
-            rtype=self.TYPE_A,
-            rclass=self.CLASS_IN,
-            ttl=ttl,
-            rdlength=4,
-            rdata=self.ip_to_bytes(ip)
-        )
-    
-    def handle_query(self, query_data: bytes, client_ip: str) -> Optional[bytes]:
-        """
-        Maneja una consulta DNS y retorna la respuesta
-        """
-        try:
-            self.stats['queries'] += 1
-            
-            # Parsear consulta
-            header, questions = self.parse_dns_query(query_data)
-            
-            if not questions:
-                self.log(f"Consulta sin preguntas de {client_ip}", "WARN")
-                return None
-            
-            # Registrar consulta
-            for question in questions:
-                self.log(f"Consulta de {client_ip}: {question.name} (Tipo: {question.qtype})", "DEBUG")
-            
-            # Preparar respuestas
-            answers = []
-            
-            for question in questions:
-                domain = question.name
-                
-                # Verificar si el cliente está autenticado
-                if client_ip in self.allowed_domains:
-                    # Cliente autenticado - resolver DNS normalmente
-                    self.stats['allowed'] += 1
-                    
-                    # Intentar resolución real (si está implementada)
-                    # Por ahora, redirigir al gateway para que resuelva
-                    answer = self.create_a_record(domain, self.gateway_ip, ttl=60)
-                    answers.append(answer)
-                    
-                else:
-                    # Cliente NO autenticado - redirigir todo al portal
-                    self.stats['redirected'] += 1
-                    
-                    # Redirigir al portal cautivo
-                    answer = self.create_a_record(domain, self.gateway_ip, ttl=60)
-                    answers.append(answer)
-                    
-                    # También responder con wildcard para subdominios
-                    if domain.count('.') > 1:
-                        wildcard_domain = f"*.{'.'.join(domain.split('.')[-2:])}"
-                        if wildcard_domain not in [a.name for a in answers]:
-                            wildcard_answer = self.create_a_record(wildcard_domain, self.gateway_ip, ttl=60)
-                            answers.append(wildcard_answer)
-            
-            # Crear respuesta DNS
-            response = self.create_dns_response(header, questions, answers)
-            
-            self.log(f"Respuesta enviada a {client_ip}: {len(answers)} registros", "DEBUG")
-            return response
-            
-        except Exception as e:
-            self.stats['errors'] += 1
-            self.log(f"Error manejando consulta DNS: {e}", "ERROR")
-            return None
-    
-    def allow_client(self, client_ip: str):
-        """Permite resolución DNS normal para un cliente autenticado"""
-        self.allowed_domains[client_ip] = []
-        self.log(f"Cliente {client_ip} autorizado para DNS", "INFO")
-    
-    def block_client(self, client_ip: str):
-        """Bloquea cliente, redirige todo al portal"""
-        if client_ip in self.allowed_domains:
-            del self.allowed_domains[client_ip]
-            self.log(f"Cliente {client_ip} bloqueado de DNS", "INFO")
-    
-    def start(self):
-        """Inicia el servidor DNS"""
-        try:
-            self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            self.socket.bind(('0.0.0.0', self.port))
-            self.socket.settimeout(1.0)  # Timeout para poder verificar running
-            
-            self.running = True
-            self.log(f"Servidor DNS iniciado en puerto {self.port}")
-            self.log(f"Gateway IP: {self.gateway_ip}")
-            
-            while self.running:
-                try:
-                    # Esperar paquete DNS
-                    data, addr = self.socket.recvfrom(512)  # Max tamaño DNS UDP
-                    client_ip = addr[0]
-                    
-                    # Manejar en hilo separado para concurrencia
-                    thread = threading.Thread(
-                        target=self._handle_dns_packet,
-                        args=(data, client_ip, addr)
-                    )
-                    thread.daemon = True
-                    thread.start()
-                    
-                except socket.timeout:
-                    # Timeout normal, verificar si seguimos running
-                    continue
-                except Exception as e:
-                    if self.running:
-                        self.log(f"Error en socket DNS: {e}", "ERROR")
-                    
-        except Exception as e:
-            self.log(f"Error iniciando servidor DNS: {e}", "ERROR")
-        finally:
-            if self.socket:
-                self.socket.close()
-            self.log("Servidor DNS detenido")
-    
-    def _handle_dns_packet(self, data: bytes, client_ip: str, addr: Tuple[str, int]):
-        """Maneja un paquete DNS individual"""
-        try:
-            response = self.handle_query(data, client_ip)
-            if response:
-                self.socket.sendto(response, addr)
-        except Exception as e:
-            self.log(f"Error procesando paquete DNS: {e}", "ERROR")
+            pass
     
     def stop(self):
-        """Detiene el servidor DNS"""
-        self.running = False
-        if self.socket:
-            self.socket.close()
+        """Detiene dnsmasq"""
+        print("[dnsmasq] Deteniendo servidor...")
+        
+        if self.process:
+            self.process.terminate()
+            try:
+                self.process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                self.process.kill()
+            
+            self.process = None
+        
+        self.stats['started'] = False
+        print("[dnsmasq] Servidor detenido")
     
-    def get_stats(self) -> Dict:
-        """Obtiene estadísticas del servidor DNS"""
-        return self.stats.copy()
+    def _read_logs(self):
+        """Lee y procesa logs de dnsmasq"""
+        while self.process and self.process.poll() is None:
+            try:
+                if self.process.stdout:
+                    line = self.process.stdout.readline()
+                    if line:
+                        self._process_log_line(line.strip())
+            except Exception as e:
+                if self.stats['started']:
+                    print(f"[dnsmasq] Error leyendo logs: {e}")
+                break
+    
+    def _process_log_line(self, line: str):
+        """Procesa una línea de log"""
+        if "DHCPDISCOVER" in line:
+            mac = self._extract_mac(line)
+            print(f"[dnsmasq] Cliente descubierto: {mac}")
+        elif "DHCPOFFER" in line:
+            ip = self._extract_ip(line)
+            mac = self._extract_mac(line)
+            print(f"[dnsmasq] Oferta enviada: {mac} -> {ip}")
+        elif "DHCPACK" in line:
+            ip = self._extract_ip(line)
+            mac = self._extract_mac(line)
+            hostname = self._extract_hostname(line)
+            print(f"[dnsmasq] IP asignada: {mac} -> {ip} ({hostname})")
+        elif "query[A]" in line:
+            # Log de consultas DNS
+            parts = line.split()
+            if len(parts) > 5:
+                domain = parts[5]
+                if any(captive_domain in domain for captive_domain in self.captive_portal_domains):
+                    print(f"[dnsmasq] Consulta portal: {domain} -> {self.default_config['portal_ip']}")
+    
+    def _monitor_leases(self):
+        """Monitorea leases DHCP periódicamente"""
+        while self.stats['started'] and self.process and self.process.poll() is None:
+            time.sleep(30)
+            leases = self.get_active_leases()
+            self.stats['leases_active'] = len(leases)
+            
+            if leases:
+                print(f"[dnsmasq] Leases activos: {len(leases)} clientes")
+    
+    def _extract_mac(self, line: str) -> str:
+        """Extrae MAC address de línea de log"""
+        import re
+        match = re.search(r'([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})', line)
+        return match.group(0) if match else "unknown"
+    
+    def _extract_ip(self, line: str) -> str:
+        """Extrae IP address de línea de log"""
+        import re
+        match = re.search(r'\b(?:\d{1,3}\.){3}\d{1,3}\b', line)
+        return match.group(0) if match else "unknown"
+    
+    def _extract_hostname(self, line: str) -> str:
+        """Extrae hostname de línea de log"""
+        parts = line.split()
+        for i, part in enumerate(parts):
+            if part == "to" and i + 1 < len(parts):
+                return parts[i + 1]
+        return "unknown"
+    
+    def get_active_leases(self) -> List[Dict]:
+        """Obtiene leases activos desde archivo"""
+        leases = []
+        
+        if os.path.exists(self.leases_file):
+            with open(self.leases_file, 'r') as f:
+                for line in f:
+                    parts = line.strip().split()
+                    if len(parts) >= 4:
+                        lease_time = int(parts[0])
+                        mac = parts[1]
+                        ip = parts[2]
+                        hostname = parts[3] if len(parts) > 3 else ''
+                        client_id = parts[4] if len(parts) > 4 else ''
+                        
+                        # Verificar si el lease aún es válido (basado en tiempo)
+                        current_time = int(time.time())
+                        lease_end = lease_time
+                        
+                        # Calcular duración del lease (12h = 43200 segundos)
+                        lease_duration = 12 * 3600  # 12 horas
+                        
+                        if current_time <= lease_end + lease_duration:
+                            leases.append({
+                                'expiry': lease_time,
+                                'mac': mac,
+                                'ip': ip,
+                                'hostname': hostname,
+                                'client_id': client_id,
+                                'remaining': max(0, (lease_time + lease_duration) - current_time)
+                            })
+        
+        return leases
+    
+    def add_static_lease(self, mac: str, ip: str, hostname: str = "") -> bool:
+        """Añade una reserva estática de DHCP"""
+        try:
+            # Verificar que la IP esté en el rango correcto
+            subnet = ipaddress.ip_network(self.default_config['subnet'], strict=False)
+            if ipaddress.ip_address(ip) not in subnet:
+                print(f"[dnsmasq] ❌ IP {ip} no está en la subred {subnet}")
+                return False
+            
+            # Verificar que la IP no esté ya en uso
+            leases = self.get_active_leases()
+            for lease in leases:
+                if lease['ip'] == ip:
+                    print(f"[dnsmasq] ❌ IP {ip} ya está asignada a {lease['mac']}")
+                    return False
+            
+            # Agregar la reserva al archivo de configuración
+            config_line = f"dhcp-host={mac},{ip}"
+            if hostname:
+                config_line += f",{hostname}"
+            
+            with open(self.conf_path, 'a') as f:
+                f.write(f"\n{config_line}\n")
+            
+            # Recargar configuración
+            self.reload()
+            
+            print(f"[dnsmasq] ✅ Reserva estática añadida: {mac} -> {ip}")
+            return True
+            
+        except Exception as e:
+            print(f"[dnsmasq] ❌ Error añadiendo reserva: {e}")
+            return False
+    
+    def reload(self):
+        """Recarga configuración de dnsmasq"""
+        if self.process:
+            try:
+                self.process.send_signal(subprocess.signal.SIGHUP)
+                self.stats['last_reload'] = time.time()
+                print("[dnsmasq] Configuración recargada")
+            except Exception as e:
+                print(f"[dnsmasq] Error recargando configuración: {e}")
+    
+    def block_client(self, client_ip: str):
+        """Método vacío - ya no se usa para bloquear DNS"""
+        # Este método se mantiene por compatibilidad, pero no hace nada
+        # El bloqueo ahora se maneja a través del firewall
+        print(f"[dnsmasq] Nota: El bloqueo de {client_ip} ahora se maneja por firewall")
+    
+    def allow_client(self, client_ip: str):
+        """Método vacío - ya no se usa para permitir DNS"""
+        # Este método se mantiene por compatibilidad, pero no hace nada
+        # El permiso ahora se maneja a través del firewall
+        print(f"[dnsmasq] Nota: El permiso de {client_ip} ahora se maneja por firewall")
+    
+    def add_captive_domain(self, domain: str) -> bool:
+        """Añade un dominio adicional para redirección al portal"""
+        if domain not in self.captive_portal_domains:
+            self.captive_portal_domains.append(domain)
+            
+            # Recargar configuración
+            if self.stats['started']:
+                config_content = self.generate_config()
+                with open(self.conf_path, 'w') as f:
+                    f.write(config_content)
+                self.reload()
+                print(f"[dnsmasq] Dominio añadido para redirección: {domain}")
+                return True
+        
+        return False
+    
+    def get_config_summary(self) -> Dict:
+        """Obtiene un resumen de la configuración actual"""
+        return {
+            'interface': self.default_config['interface'],
+            'gateway': self.default_config['gateway'],
+            'dhcp_range': f"{self.default_config['dhcp_start']} - {self.default_config['dhcp_end']}",
+            'dns_servers': self.default_config['external_dns'],
+            'captive_domains': len(self.captive_portal_domains),
+            'leases_active': self.stats['leases_active'],
+            'started': self.stats['started']
+        }
+    
+    def is_running(self) -> bool:
+        """Verifica si dnsmasq está en ejecución"""
+        return self.stats['started'] and self.process and self.process.poll() is None

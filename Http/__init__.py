@@ -10,8 +10,8 @@ from Http.templates import (
     get_success_template,
     get_error_template
 )
-from .http_response import HTTPResponse
-from .handlers import RouteHandler, create_default_routes
+from Http.http_response import HTTPResponse
+from Http.handlers import RouteHandler, create_default_routes
 
 __all__ = [
     'HTTPServer',
