@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Error</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="portal-container">
+        <div class="error-card">
+            <div class="error-icon">❌</div>
+            <h1>Authentication Error</h1>
+            <p class="error-message">Incorrect username or password</p>
+            
+            <div class="error-details">
+                <p>Failed attempt for: <strong>{{username}}</strong></p>
+                <p>From IP: <code>{{ip}}</code></p>
+            </div>
+            
+            <div class="suggestions">
+                <h3>Possible causes:</h3>
+                <ul>
+                    <li>Incorrect username or password</li>
+                    <li>Account may be temporarily blocked</li>
+                    <li>Server connection issues</li>
+                </ul>
+            </div>
+            
+            <div class="actions">
+                <a href="/" class="primary-button">Try Again</a>
+            </div>
+            
+            <div class="error-footer">
+                <p>If the problem persists, contact the administrator.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

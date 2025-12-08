@@ -1,0 +1,15 @@
+{
+    "portal_name": "Captive Portal",
+    "welcome_message": "Please log in to access the Internet",
+    "gateway_ip": "10.42.0.1",
+    "server_port": 8080,
+    "outgoing_interface": "eth0",
+    "wifi_interface": "wlan0",
+    "hotspot_ssid": "CaptivePortal",
+    "hotspot_password": "portal123456",
+    "session_timeout": 3600,
+    "max_login_attempts": 5,
+    "block_time": 900,
+    "enable_logging": true,
+    "version": "1.0.0"
+}

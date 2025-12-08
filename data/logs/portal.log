@@ -1,92 +1,439 @@
-2025-12-03 00:42:47.391 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-03 00:42:47.778 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-03 00:42:47.778 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-03 00:42:47.778 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-03 00:42:47.779 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-03 00:42:47.781 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-03 00:42:47.781 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-03 00:43:00.783 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:43:30.791 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:43:48.430 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-03 00:43:48.843 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-03 00:43:48.844 [INFO    ] [Core.portal] Portal detenido
-2025-12-03 00:44:37.721 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-03 00:44:37.857 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-03 00:44:37.858 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-03 00:44:37.858 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-03 00:44:37.860 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-03 00:45:00.869 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:45:30.880 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:46:00.890 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:46:30.898 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:47:00.903 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:47:30.911 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:48:00.918 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:48:30.926 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:49:00.933 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:49:30.941 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 00:49:43.222 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-03 00:49:44.182 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-03 00:49:44.182 [INFO    ] [Core.portal] Portal detenido
-2025-12-03 01:01:18.391 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-03 01:01:18.552 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-03 01:01:18.552 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-03 01:01:18.553 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-03 01:01:18.553 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-03 01:01:30.557 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:02:00.567 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:02:12.641 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-03 01:02:13.613 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-03 01:02:15.614 [INFO    ] [Core.portal] Portal detenido
-2025-12-03 01:02:51.943 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-03 01:02:52.081 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-03 01:02:52.082 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-03 01:02:52.082 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-03 01:02:52.082 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-03 01:03:00.085 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:03:30.097 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:04:00.107 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:04:30.115 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:05:00.122 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:05:30.129 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:06:00.137 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:06:30.144 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:07:00.151 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:07:30.158 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:08:00.167 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:08:30.174 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 01:08:49.108 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-03 01:08:49.462 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-03 01:08:51.463 [INFO    ] [Core.portal] Portal detenido
-2025-12-03 12:21:01.408 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-03 12:21:01.616 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-03 12:21:01.618 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-03 12:21:01.619 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-03 12:21:01.619 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-03 12:21:01.620 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-03 12:21:01.620 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-03 12:21:30.630 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 12:22:00.642 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 12:22:30.652 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-03 12:22:56.396 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-03 12:22:56.740 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-03 12:22:58.742 [INFO    ] [Core.portal] Portal detenido
-2025-12-04 10:39:31.552 [INFO    ] [Core.portal] 🚀 Iniciando Portal Cautivo...
-2025-12-04 10:39:31.734 [INFO    ] [Core.portal] Portal cautivo iniciado correctamente
-2025-12-04 10:39:31.735 [INFO    ] [Core.portal]    Gateway: 192.168.100.1
-2025-12-04 10:39:31.735 [INFO    ] [Core.portal]    DNS Server: :53
-2025-12-04 10:39:31.735 [INFO    ] [Core.portal] [DNS] Servidor DNS iniciado en puerto 53
-2025-12-04 10:39:31.735 [INFO    ] [Core.portal] [DNS] Gateway IP: 192.168.100.1
-2025-12-04 10:39:31.736 [INFO    ] [Core.portal]    HTTP Server: :80
-2025-12-04 10:40:00.747 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-04 10:40:30.758 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-04 10:41:00.768 [INFO    ] [Core.portal] Estadísticas - DNS: {'queries': 0, 'redirected': 0, 'allowed': 0, 'errors': 0}, Sesiones: 0
-2025-12-04 10:41:14.254 [INFO    ] [Core.portal]  Deteniendo portal...
-2025-12-04 10:41:14.856 [INFO    ] [Core.portal] [DNS] Servidor DNS detenido
-2025-12-04 10:41:16.857 [INFO    ] [Core.portal] Portal detenido
+[2025-12-06 19:01:54] ✅ SUCCESS: User 'daniela' created
+[2025-12-06 19:02:19] ℹ️ INFO: Configuring firewall rules...
+[2025-12-06 19:02:19] ℹ️ INFO: Initializing firewall...
+[2025-12-06 19:02:19] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-06 19:02:19] ℹ️ INFO: NAT configured on eth0
+[2025-12-06 19:02:19] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-06 19:02:19] ℹ️ INFO: Starting web server...
+[2025-12-06 19:02:19] ❌ ERROR: Error starting: Logger.error() missing 1 required positional argument: 'message'
+[2025-12-06 19:02:19] ℹ️ INFO: Stopping captive portal...
+[2025-12-06 19:02:19] ❌ ERROR: Fatal error: Logger.info() missing 1 required positional argument: 'message'
+[2025-12-06 19:02:19] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 10:28:19] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 10:28:19] ℹ️ INFO: Initializing firewall...
+[2025-12-07 10:28:19] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 10:28:19] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 10:28:19] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 10:28:19] ℹ️ INFO: Starting web server...
+[2025-12-07 10:28:19] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 10:28:19] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 10:28:19] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 10:28:42] ℹ️ INFO: Received signal 2, terminating...
+[2025-12-07 10:28:42] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 10:28:42] ℹ️ INFO: Server stopped
+[2025-12-07 10:28:42] ℹ️ INFO: Firewall rules cleaned up
+[2025-12-07 10:28:42] ℹ️ INFO: Portal stopped successfully
+[2025-12-07 10:28:42] ❌ ERROR: Error in main loop: [Errno 9] Bad file descriptor
+[2025-12-07 11:23:18] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 11:23:18] ℹ️ INFO: Initializing firewall...
+[2025-12-07 11:23:18] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 11:23:18] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 11:23:18] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 11:23:18] ℹ️ INFO: Starting web server...
+[2025-12-07 11:23:18] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 11:23:18] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 11:23:18] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 11:24:56] ❌ ERROR: Error with client ('127.0.0.1', 53294): [Errno 11] Resource temporarily unavailable
+[2025-12-07 11:27:29] ℹ️ INFO: Received signal 2, terminating...
+[2025-12-07 11:27:29] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 11:27:29] ℹ️ INFO: Server stopped
+[2025-12-07 11:27:29] ℹ️ INFO: Firewall rules cleaned up
+[2025-12-07 11:27:29] ℹ️ INFO: Portal stopped successfully
+[2025-12-07 11:27:29] ❌ ERROR: Error in main loop: [Errno 9] Bad file descriptor
+[2025-12-07 11:27:32] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 11:27:32] ℹ️ INFO: Initializing firewall...
+[2025-12-07 11:27:32] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 11:27:32] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 11:27:32] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 11:27:32] ℹ️ INFO: Starting web server...
+[2025-12-07 11:27:32] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 11:27:32] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 11:27:32] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 19:18:27] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 19:18:27] ℹ️ INFO: Initializing firewall...
+[2025-12-07 19:18:27] ℹ️ INFO: IP forwarding enabled
+[2025-12-07 19:18:27] ℹ️ INFO: Existing firewall rules flushed
+[2025-12-07 19:18:28] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 19:18:28] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 19:18:28] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 19:18:28] ℹ️ INFO: Starting web server...
+[2025-12-07 19:18:28] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 19:18:28] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 19:18:28] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 19:19:08] 🐛 DEBUG: Request: GET /connecttest.txt from 10.42.0.85
+[2025-12-07 19:19:08] ℹ️ INFO: GET request from 10.42.0.85: /connecttest.txt
+[2025-12-07 19:19:08] ℹ️ INFO: Captive portal detection: /connecttest.txt
+[2025-12-07 19:19:09] 🐛 DEBUG: Request: GET /redirect from 10.42.0.85
+[2025-12-07 19:19:09] ℹ️ INFO: GET request from 10.42.0.85: /redirect
+[2025-12-07 19:19:09] ℹ️ INFO: No valid session, redirecting to login: /redirect
+[2025-12-07 19:19:09] 🐛 DEBUG: Request: GET / from 10.42.0.85
+[2025-12-07 19:19:09] ℹ️ INFO: GET request from 10.42.0.85: /
+[2025-12-07 19:19:09] ℹ️ INFO: Serving login page for 10.42.0.85
+[2025-12-07 19:19:09] ℹ️ INFO: Serving login page
+[2025-12-07 19:19:09] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:19:09] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.85
+[2025-12-07 19:19:09] ℹ️ INFO: GET request from 10.42.0.85: /static/styles.css
+[2025-12-07 19:19:09] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:19:21] 🐛 DEBUG: Content-Length: 36
+[2025-12-07 19:19:21] 🐛 DEBUG: Body already received: 36 bytes
+[2025-12-07 19:19:21] 🐛 DEBUG: Final body length: 36 bytes
+[2025-12-07 19:19:21] 🐛 DEBUG: Request: POST / from 10.42.0.85
+[2025-12-07 19:19:21] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d64616e69656c612670617373776f72643d64616e69656c61313233
+[2025-12-07 19:19:21] 🐛 DEBUG: Body decoded length: 36 chars
+[2025-12-07 19:19:21] ℹ️ INFO: POST request to / from 10.42.0.85
+[2025-12-07 19:19:21] 🐛 DEBUG: Body preview (safe): username=daniela&password=daniela123
+[2025-12-07 19:19:21] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:19:21] ℹ️ INFO: Login attempt - Username: daniela... (length: 7)
+[2025-12-07 19:19:21] ℹ️ INFO: Access allowed for IP: 10.42.0.85
+[2025-12-07 19:19:21] ℹ️ INFO: Successful login: daniela from 10.42.0.85
+[2025-12-07 19:19:21] 🐛 DEBUG: Request: GET /success from 10.42.0.85
+[2025-12-07 19:19:21] ℹ️ INFO: GET request from 10.42.0.85: /success
+[2025-12-07 19:19:21] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.85
+[2025-12-07 19:19:21] ℹ️ INFO: GET request from 10.42.0.85: /static/styles.css
+[2025-12-07 19:19:21] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:19:28] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:19:28] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:19:28] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:19:36] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: Serving login page
+[2025-12-07 19:19:36] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:19:36] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:19:36] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:19:36] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:19:36] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: Serving login page
+[2025-12-07 19:19:36] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:19:36] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:19:36] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:19:36] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:19:58] 🐛 DEBUG: Request: POST /chat from 10.42.0.12
+[2025-12-07 19:19:58] ℹ️ INFO: POST request to /chat from 10.42.0.12
+[2025-12-07 19:19:58] ⚠️ WARNING: POST to unknown path: /chat
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:20:07] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:07] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:20:07] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:07] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:20:07] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:20:07] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:07] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:07] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:07] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:07] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:24] 🐛 DEBUG: Content-Length: 34
+[2025-12-07 19:20:24] 🐛 DEBUG: Body already received: 34 bytes
+[2025-12-07 19:20:24] 🐛 DEBUG: Final body length: 34 bytes
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: POST / from 10.42.0.12
+[2025-12-07 19:20:24] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d6d656c616e692670617373776f72643d6d656c616e69313233
+[2025-12-07 19:20:24] 🐛 DEBUG: Body decoded length: 34 chars
+[2025-12-07 19:20:24] ℹ️ INFO: POST request to / from 10.42.0.12
+[2025-12-07 19:20:24] 🐛 DEBUG: Body preview (safe): username=melani&password=melani123
+[2025-12-07 19:20:24] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:20:24] ℹ️ INFO: Login attempt - Username: melani... (length: 6)
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:20:24] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:24] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:20:24] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:20:24] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:24] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:24] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:24] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:24] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:20:26] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:26] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:20:26] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:26] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:20:26] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:20:26] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:26] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:26] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:26] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:26] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:28] 🐛 DEBUG: Request: POST /chat from 10.42.0.12
+[2025-12-07 19:20:28] ℹ️ INFO: POST request to /chat from 10.42.0.12
+[2025-12-07 19:20:28] ⚠️ WARNING: POST to unknown path: /chat
+[2025-12-07 19:20:39] 🐛 DEBUG: Content-Length: 36
+[2025-12-07 19:20:39] 🐛 DEBUG: Body already received: 36 bytes
+[2025-12-07 19:20:39] 🐛 DEBUG: Final body length: 36 bytes
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: POST / from 10.42.0.12
+[2025-12-07 19:20:39] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d64616e69656c612670617373776f72643d64616e69656c61313233
+[2025-12-07 19:20:39] 🐛 DEBUG: Body decoded length: 36 chars
+[2025-12-07 19:20:39] ℹ️ INFO: POST request to / from 10.42.0.12
+[2025-12-07 19:20:39] 🐛 DEBUG: Body preview (safe): username=daniela&password=daniela123
+[2025-12-07 19:20:39] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:20:39] ℹ️ INFO: Login attempt - Username: daniela... (length: 7)
+[2025-12-07 19:20:39] ℹ️ INFO: Access allowed for IP: 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: Successful login: daniela from 10.42.0.12
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: GET /success from 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: GET request from 10.42.0.12: /success
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:20:39] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:39] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:20:39] ℹ️ INFO: Valid session found for 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: Serving login page
+[2025-12-07 19:20:39] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:20:39] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:39] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:39] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:43] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:43] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:43] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:43] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:20:43] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:20:43] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:20:57] ℹ️ INFO: Received signal 2, terminating...
+[2025-12-07 19:20:57] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 19:20:57] ℹ️ INFO: Server stopped
+[2025-12-07 19:20:57] ℹ️ INFO: Firewall rules cleaned up
+[2025-12-07 19:20:57] ℹ️ INFO: Portal stopped successfully
+[2025-12-07 19:20:57] ❌ ERROR: Error in main loop: [Errno 9] Bad file descriptor
+[2025-12-07 19:21:56] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 19:21:56] ℹ️ INFO: Initializing firewall...
+[2025-12-07 19:21:56] ℹ️ INFO: IP forwarding enabled
+[2025-12-07 19:21:56] ℹ️ INFO: Existing firewall rules flushed
+[2025-12-07 19:21:56] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 19:21:56] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 19:21:56] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 19:21:56] ℹ️ INFO: Starting web server...
+[2025-12-07 19:21:56] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 19:21:56] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 19:21:56] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:22:50] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: Serving login page
+[2025-12-07 19:22:50] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:22:50] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:22:50] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:22:50] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:22:50] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: Serving login page
+[2025-12-07 19:22:50] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:22:50] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:22:50] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:22:50] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:22:59] 🐛 DEBUG: Content-Length: 36
+[2025-12-07 19:22:59] 🐛 DEBUG: Body already received: 36 bytes
+[2025-12-07 19:22:59] 🐛 DEBUG: Final body length: 36 bytes
+[2025-12-07 19:22:59] 🐛 DEBUG: Request: POST / from 10.42.0.12
+[2025-12-07 19:22:59] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d64616e69656c612670617373776f72643d64616e69656c61313233
+[2025-12-07 19:22:59] 🐛 DEBUG: Body decoded length: 36 chars
+[2025-12-07 19:22:59] ℹ️ INFO: POST request to / from 10.42.0.12
+[2025-12-07 19:22:59] 🐛 DEBUG: Body preview (safe): username=daniela&password=daniela123
+[2025-12-07 19:22:59] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:22:59] ℹ️ INFO: Login attempt - Username: daniela... (length: 7)
+[2025-12-07 19:22:59] ℹ️ INFO: Access allowed for IP: 10.42.0.12
+[2025-12-07 19:22:59] ℹ️ INFO: Successful login: daniela from 10.42.0.12
+[2025-12-07 19:22:59] 🐛 DEBUG: Request: GET /success from 10.42.0.12
+[2025-12-07 19:22:59] ℹ️ INFO: GET request from 10.42.0.12: /success
+[2025-12-07 19:23:00] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:23:00] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:23:00] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:23:00] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:23:00] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:23:00] ℹ️ INFO: Valid session found for 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: Serving login page
+[2025-12-07 19:23:00] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:23:00] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:23:00] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:23:00] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:23:39] ℹ️ INFO: Received signal 2, terminating...
+[2025-12-07 19:23:39] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 19:23:39] ℹ️ INFO: Server stopped
+[2025-12-07 19:23:39] ℹ️ INFO: Firewall rules cleaned up
+[2025-12-07 19:23:39] ℹ️ INFO: Portal stopped successfully
+[2025-12-07 19:23:39] ❌ ERROR: Error in main loop: [Errno 9] Bad file descriptor
+[2025-12-07 19:25:58] ℹ️ INFO: Configuring firewall rules...
+[2025-12-07 19:25:58] ℹ️ INFO: Initializing firewall...
+[2025-12-07 19:25:58] ℹ️ INFO: IP forwarding enabled
+[2025-12-07 19:25:58] ℹ️ INFO: Existing firewall rules flushed
+[2025-12-07 19:25:58] ℹ️ INFO: HTTP redirect to port 8080 configured
+[2025-12-07 19:25:58] ℹ️ INFO: NAT configured on eth0
+[2025-12-07 19:25:58] ℹ️ INFO: Firewall initialized with 2 active rules
+[2025-12-07 19:25:58] ℹ️ INFO: Starting web server...
+[2025-12-07 19:25:58] ℹ️ INFO: Server started on 0.0.0.0:8080
+[2025-12-07 19:25:58] ℹ️ INFO: Access: http://0.0.0.0:8080
+[2025-12-07 19:25:58] ℹ️ INFO: Waiting for connections...
+
+[2025-12-07 19:26:57] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:26:57] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:26:57] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:27:00] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:00] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:00] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:27:00] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:27:00] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:27:00] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:00] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:00] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:00] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:00] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:11] 🐛 DEBUG: Content-Length: 34
+[2025-12-07 19:27:11] 🐛 DEBUG: Body already received: 34 bytes
+[2025-12-07 19:27:11] 🐛 DEBUG: Final body length: 34 bytes
+[2025-12-07 19:27:11] 🐛 DEBUG: Request: POST / from 10.42.0.12
+[2025-12-07 19:27:11] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d6d656c616e692670617373776f72643d6d656c616e69313233
+[2025-12-07 19:27:11] 🐛 DEBUG: Body decoded length: 34 chars
+[2025-12-07 19:27:11] ℹ️ INFO: POST request to / from 10.42.0.12
+[2025-12-07 19:27:11] 🐛 DEBUG: Body preview (safe): username=melani&password=melani123
+[2025-12-07 19:27:11] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:27:11] ℹ️ INFO: Login attempt - Username: melani... (length: 6)
+[2025-12-07 19:27:11] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:27:11] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:27:11] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:27:12] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:12] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:12] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:12] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:27:12] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:27:12] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:27:12] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:27:12] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:27:12] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:12] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:12] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:12] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:12] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:12] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:27:13] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:13] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:27:13] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:27:13] ℹ️ INFO: No valid session, redirecting to login: /favicon.ico
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:13] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET / from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /
+[2025-12-07 19:27:13] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:13] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:13] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:13] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:13] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:22] 🐛 DEBUG: Content-Length: 36
+[2025-12-07 19:27:22] 🐛 DEBUG: Body already received: 36 bytes
+[2025-12-07 19:27:22] 🐛 DEBUG: Final body length: 36 bytes
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: POST / from 10.42.0.12
+[2025-12-07 19:27:22] 🐛 DEBUG: Body bytes (hex, first 100): 757365726e616d653d64616e69656c612670617373776f72643d64616e69656c61313233
+[2025-12-07 19:27:22] 🐛 DEBUG: Body decoded length: 36 chars
+[2025-12-07 19:27:22] ℹ️ INFO: POST request to / from 10.42.0.12
+[2025-12-07 19:27:22] 🐛 DEBUG: Body preview (safe): username=daniela&password=daniela123
+[2025-12-07 19:27:22] 🐛 DEBUG: Parsed body keys: ['username', 'password']
+[2025-12-07 19:27:22] ℹ️ INFO: Login attempt - Username: daniela... (length: 7)
+[2025-12-07 19:27:22] ℹ️ INFO: Access allowed for IP: 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: Successful login: daniela from 10.42.0.12
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: GET /success from 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: GET request from 10.42.0.12: /success
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: GET /static/styles.css from 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: GET request from 10.42.0.12: /static/styles.css
+[2025-12-07 19:27:22] ℹ️ INFO: Serving static file: /static/styles.css
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:22] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: GET /favicon.ico from 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: GET request from 10.42.0.12: /favicon.ico
+[2025-12-07 19:27:22] ℹ️ INFO: Valid session found for 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: Serving login page for 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: Serving login page
+[2025-12-07 19:27:22] ℹ️ INFO: Login page sent successfully
+[2025-12-07 19:27:22] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:22] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:22] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:27] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:27] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:27] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:27] 🐛 DEBUG: Request: GET /generate_204 from 10.42.0.12
+[2025-12-07 19:27:27] ℹ️ INFO: GET request from 10.42.0.12: /generate_204
+[2025-12-07 19:27:27] ℹ️ INFO: Captive portal detection: /generate_204
+[2025-12-07 19:27:28] 🐛 DEBUG: Request: POST /chat from 10.42.0.12
+[2025-12-07 19:27:28] ℹ️ INFO: POST request to /chat from 10.42.0.12
+[2025-12-07 19:27:28] ⚠️ WARNING: POST to unknown path: /chat
+[2025-12-07 19:28:40] ℹ️ INFO: Received signal 2, terminating...
+[2025-12-07 19:28:40] ℹ️ INFO: Stopping captive portal...
+[2025-12-07 19:28:40] ℹ️ INFO: Server stopped
+[2025-12-07 19:28:40] ℹ️ INFO: Firewall rules cleaned up
+[2025-12-07 19:28:40] ℹ️ INFO: Portal stopped successfully
+[2025-12-07 19:28:40] ❌ ERROR: Error in main loop: [Errno 9] Bad file descriptor

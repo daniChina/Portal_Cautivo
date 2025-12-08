@@ -1,0 +1,12 @@
+{
+  "admin": {
+    "salt": "c29tZXJhbmRvbXNhbHR2YWx1ZQ==",
+    "hash": "a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef",
+    "created": 1700000000
+  },
+  "daniela": {
+    "salt": "57f22b4bb2ca5731b2d8caec73356d23",
+    "hash": "c8cdfbe4a0af2036e5759bb05e5fb1258d198f125e521ae88988ba157cfaf6b9",
+    "created": 1765065714.5393465
+  }
+}

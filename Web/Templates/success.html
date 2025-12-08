@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Granted</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="portal-container">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h1>Access Granted!</h1>
+            <p class="success-message">Welcome, <strong>{{username}}</strong></p>
+            
+            <div class="session-info">
+                <div class="info-item">
+                    <span class="label">IP:</span>
+                    <span class="value">{{ip}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Access time:</span>
+                    <span class="value">{{time}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Status:</span>
+                    <span class="value active-status">Connected</span>
+                </div>
+            </div>
+            
+            <p class="instruction">You now have access to the Internet.</p>
+            <p class="session-note">The session will expire in 1 hour.</p>
+            
+            <div class="actions">
+                <a href="/" class="secondary-button">Back to Portal</a>
+                <a href="/logout" class="primary-button">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

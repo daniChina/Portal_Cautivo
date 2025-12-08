@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{portal_name}} - Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="portal-container">
+        <div class="login-card">
+            <div class="header">
+                <h1>{{portal_name}}</h1>
+                <p class="subtitle">{{welcome_message}}</p>
+            </div>
+            
+            <form method="POST" action="/" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required 
+                           placeholder="Enter your username" autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required 
+                           placeholder="Enter your password" autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <span class="button-text">Login</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </form>
+            
+            <div class="footer">
+                <p class="note">This is a secure authentication portal</p>
+                <p class="version">v1.0 - Manual System</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
